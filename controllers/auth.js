@@ -8,7 +8,7 @@ const { generarJWT } = require("../helpers/jwt");
 const crearUsuario = async (req, res = response) => {
     
     const { email, password } = req.body;
-
+    console.log(email, password);
     try {
 
         // ! Validar si el corrreo ya existe
@@ -56,6 +56,8 @@ const login = async (req, res = response) => {
 
     const { email, password } = req.body;
 
+    console.log(email, password);
+
     try {
         // ! Validar email
         const usuarioDB = await Usuario.findOne({ email });
@@ -101,6 +103,7 @@ const login = async (req, res = response) => {
 
 // * Renovar el token
 const renewToken = async ( req, res = response ) => {
+    console.log(req);
 
     // * Obtener el uid
     const uid = req.uid;
